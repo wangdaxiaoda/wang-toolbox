@@ -1,0 +1,108 @@
+{
+  "name": "wang-toolbox",
+  "displayName": "ShiZi Toolbox",
+  "publisher": "wangDaShiZi",
+  "description": "A collection for some small and useful tools.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/marcosrivasr/file-groups.git"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "wangToolbox.selectAllLines",
+        "title": "select all untitled line",
+        "icon": "src/resources/light/open.svg",
+        "enablement": "resourceScheme == untitled"
+      },
+      {
+        "command": "wangToolbox.saveAllEditorLayout",
+        "title": "save all layout",
+        "icon": "src/resources/light/add.svg"
+      },
+      {
+        "command": "wangToolbox.deleteLayout",
+        "title": "delete layout",
+        "icon": "src/resources/dark/delete.svg"
+      },
+      {
+        "command": "wangToolbox.applyLayout",
+        "title": "apply layout",
+        "icon": "src/resources/dark/open.svg"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "wangToolbox.selectAllLines"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "wangToolbox.deleteLayout",
+          "group": "inline"
+        },
+        {
+          "command": "wangToolbox.applyLayout",
+          "group": "inline",
+          "when": "viewItem == root"
+        }
+      ]
+    },
+    "views": {
+      "editorLayout": [
+        {
+          "id": "editorLayout",
+          "name": "Editor Layout",
+          "contextualTitle": "Editor Layout"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "editorLayout",
+          "title": "Editor Layout",
+          "icon": "src/resources/layout.svg"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.75.0",
+    "@types/glob": "^8.0.1",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.33.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.4",
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1",
+    "@vscode/test-electron": "^2.2.2"
+  }
+}

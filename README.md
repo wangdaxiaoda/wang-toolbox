@@ -1,2 +1,27 @@
-# wang-toolbox
-A collection for some small and useful tools.
+# ShiZi Toolbox
+
+> 集成一些有用的小工具
+
+## untitled 文件中，选中有内容的所有行
+
+```
+> select all untitled line
+```
+
+## 文件布局
+
+> 日常工作中，不同的功能开发对应的是不同几个的文件。不同功能开发切换时，就需要重复关闭打开不同的文件，这个时候如果有一个保存文件布局信息的工具就会很方便。
+
+#### 功能列表
+
+- **添加了一个 editor layout 视图**
+
+- 保存布局（记录不同分组下的多个打开的文件）
+
+  ```
+  > save all layout
+  ```
+
+- 应用布局（打开被保存的布局）
+
+- 删除布局
