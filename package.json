@@ -3,7 +3,7 @@
   "displayName": "ShiZi Toolbox",
   "publisher": "wangDaShiZi",
   "description": "A collection for some small and useful tools.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "engines": {
     "vscode": "^1.75.0"
   },
@@ -15,7 +15,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/marcosrivasr/file-groups.git"
+    "url": "https://github.com/wangdaxiaoda/wang-toolbox.git"
   },
   "contributes": {
     "commands": [
