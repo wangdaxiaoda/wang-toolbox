@@ -1,5 +1,5 @@
-import * as vscode from "vscode";
+import * as vscode from "vscode"
 
 export function testWindow() {
-  console.log("window", vscode.window);
+	console.log("window", vscode.window)
 }
