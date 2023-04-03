@@ -37,12 +37,22 @@ function saveLayout(itemID: string) {
 		// 遍历 tabs 创建 file 节点
 		tabs.forEach((tab) => {
 			const inputInfo: { uri: vscode.Uri } = tab.input as any
-			// TODO: 这边之后需要加一个过滤规则，把 untitled、预览的、非当前项目的 都排除
+			// 加一个过滤规则，把 untitled、预览的、非当前项目的 都排除
 			if (!inputInfo?.uri?.path) return
-
+			const filePath = inputInfo.uri.path
+			// 过滤掉预览文件和 untitled 文件
+			if (
+				inputInfo?.uri?.scheme === "vscode" || inputInfo?.uri?.path?.startsWith("Untitled-")
+			) {
+				return
+			}
+			// 过滤掉非当前项目的文件
+			const workspaceFolder = vscode.workspace.getWorkspaceFolder(inputInfo.uri)
+			if (!workspaceFolder || !filePath.includes(workspaceFolder.uri.path)) {
+				return
+			}
 			// 取文件绝对路径的最后两个部分
 			// TODO: 这个地方可以优化一下，不超出当前项目根目录
-			const filePath = inputInfo.uri.path
 			const lastFilename = getLastTwoFilepath(filePath)
 			// 创建 file 节点
 			const fileID = getFileID(itemID, viewColumn, lastFilename)
