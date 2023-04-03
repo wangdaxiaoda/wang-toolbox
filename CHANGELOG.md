@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.2.1](https://github.com/wangdaxiaoda/wang-toolbox/compare/v1.2.0...v1.2.1) (2023-04-03)
+
+
+### Bug Fixes
+
+* 命令添加前缀，添加过滤规则 ([326ba30](https://github.com/wangdaxiaoda/wang-toolbox/commit/326ba3096c61f51c651a2573187113c29a2bebc1))
+
 ## [1.2.0](https://github.com/wangdaxiaoda/wang-toolbox/compare/v1.1.0...v1.2.0) (2023-04-01)
 
 
