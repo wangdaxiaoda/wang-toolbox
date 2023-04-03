@@ -21,34 +21,34 @@
     "commands": [
       {
         "command": "wangToolbox.selectAllLines",
-        "title": "select all untitled line",
+        "title": "WToolbox: select all untitled line",
         "icon": "src/resources/light/open.svg",
         "enablement": "resourceScheme == untitled"
       },
       {
         "command": "wangToolbox.saveAllEditorLayout",
-        "title": "save all layout",
+        "title": "WToolbox: save all layout",
         "icon": "src/resources/light/add.svg"
       },
       {
         "command": "wangToolbox.deleteLayout",
-        "title": "delete layout",
+        "title": "WToolbox: delete layout",
         "icon": "src/resources/dark/delete.svg"
       },
       {
         "command": "wangToolbox.applyLayout",
-        "title": "apply layout",
+        "title": "WToolbox: apply layout",
         "icon": "src/resources/dark/open.svg"
       },
       {
         "command": "wangToolbox.addToLayout",
-        "title": "add to layout",
+        "title": "WToolbox: add to layout",
         "icon": "src/resources/dark/add.svg",
         "enablement": "resourceScheme != untitled"
       },
       {
         "command": "wangToolbox.updateLayout",
-        "title": "update layout",
+        "title": "WToolbox: update layout",
         "icon": "src/resources/dark/add.svg"
       }
     ],
@@ -73,6 +73,12 @@
         }
       ]
     },
+    "viewsWelcome": [
+      {
+        "view": "editorLayout",
+        "contents": "目前还没有任何已经保存的布局，请点击按钮，保存当前布局 \n [save current layout](command:wangToolbox.saveAllEditorLayout)"
+      }
+    ],
     "views": {
       "editorLayout": [
         {
