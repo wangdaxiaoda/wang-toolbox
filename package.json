@@ -165,7 +165,7 @@
   },
   "standard-version": {
     "scripts": {
-      "posttag": "git push --follow-tags origin master"
+      "posttag": "git push --follow-tags origin main"
     }
   }
 }
