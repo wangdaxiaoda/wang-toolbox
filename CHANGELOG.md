@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/wangdaxiaoda/wang-toolbox/compare/v1.2.1...v1.3.0) (2023-04-06)
+
+
+### Features
+
+* 添加番茄钟 ([2ace28f](https://github.com/wangdaxiaoda/wang-toolbox/commit/2ace28f363012109215156b35135b4ab4c30e644))
+
 ### [1.2.1](https://github.com/wangdaxiaoda/wang-toolbox/compare/v1.2.0...v1.2.1) (2023-04-03)
 
 
