@@ -9,6 +9,7 @@ import {
 } from "./extensions/editorLayout"
 import { EditorLayoutDataProvider } from "./extensions/editorLayoutDataProvider"
 import selectAllLines from "./extensions/selectAllLines"
+import TomatoClock from "./extensions/tomatoClock"
 
 export function activate(context: vscode.ExtensionContext) {
 	// 从当前上下文中取布局记录
@@ -53,13 +54,32 @@ export function activate(context: vscode.ExtensionContext) {
 	const updateLayoutCommand = vscode.commands.registerCommand("wangToolbox.updateLayout", () => updateLayout(dataProvider))
 	//#endregion
 
+	//#region 番茄钟
+	// 专注时长
+	const focusTime = vscode.workspace.getConfiguration().get("tomatoClock.focusTime") as number
+	// 间隙时长
+	const restTime = vscode.workspace.getConfiguration().get("tomatoClock.restTime") as number
+	const tomatoClock = new TomatoClock(focusTime, restTime)
+	// 开始番茄钟
+	const startTomatoClock = vscode.commands.registerCommand("wangToolbox.startTomatoClock", () => {
+		tomatoClock.start()
+	})
+
+	// 结束番茄钟
+	const finishTomatoClock = vscode.commands.registerCommand("wangToolbox.finishTomatoClock", () => {
+		tomatoClock.finish()
+	})
+	//#endregion
+
 	context.subscriptions.push(
 		salCommand,
 		saveAllLayoutCommand,
 		deleteLayoutCommand,
 		applyLayoutCommand,
 		addToLayoutCommand,
-		updateLayoutCommand
+		updateLayoutCommand,
+		startTomatoClock,
+		finishTomatoClock
 	)
 }
 

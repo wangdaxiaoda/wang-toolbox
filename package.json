@@ -3,7 +3,7 @@
   "displayName": "ShiZi Toolbox",
   "publisher": "wangDaShiZi",
   "description": "A collection for some small and useful tools.",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "engines": {
     "vscode": "^1.75.0"
   },
@@ -18,47 +18,82 @@
     "url": "https://github.com/wangdaxiaoda/wang-toolbox.git"
   },
   "contributes": {
+    "configuration": [
+      {
+        "title": "TomatoClock",
+        "properties": {
+          "tomatoClock.focusTime": {
+            "type": "integer",
+            "default": 15,
+            "description": "番茄钟专注时间，单位为分钟，默认 15 分钟"
+          },
+          "tomatoClock.restTime": {
+            "type": "integer",
+            "default": 5,
+            "description": "番茄钟休息时间，单位为分钟，默认 5 分钟"
+          }
+        }
+      }
+    ],
     "commands": [
       {
         "command": "wangToolbox.selectAllLines",
-        "title": "WToolbox: select all untitled line",
+        "title": "select all untitled line",
         "icon": "src/resources/light/open.svg",
+        "category": "WToolbox",
         "enablement": "resourceScheme == untitled"
       },
       {
         "command": "wangToolbox.saveAllEditorLayout",
-        "title": "WToolbox: save all layout",
+        "title": "save all layout",
+        "category": "WLayout",
         "icon": "src/resources/light/add.svg"
       },
       {
         "command": "wangToolbox.deleteLayout",
-        "title": "WToolbox: delete layout",
+        "title": "delete layout",
+        "category": "WLayout",
         "icon": "src/resources/dark/delete.svg"
       },
       {
         "command": "wangToolbox.applyLayout",
-        "title": "WToolbox: apply layout",
+        "title": "apply layout",
+        "category": "WLayout",
         "icon": "src/resources/dark/open.svg"
       },
       {
         "command": "wangToolbox.addToLayout",
-        "title": "WToolbox: add to layout",
+        "title": "add to layout",
         "icon": "src/resources/dark/add.svg",
-        "enablement": "resourceScheme != untitled"
+        "category": "WLayout",
+        "enablement": "resourceScheme != untitled && editorFocus == true"
       },
       {
         "command": "wangToolbox.updateLayout",
-        "title": "WToolbox: update layout",
+        "title": "update layout",
+        "category": "WLayout",
         "icon": "src/resources/dark/add.svg"
+      },
+      {
+        "command": "wangToolbox.startTomatoClock",
+        "title": "start tomato clock",
+        "category": "TMClock"
+      },
+      {
+        "command": "wangToolbox.finishTomatoClock",
+        "title": "finish tomato clock",
+        "category": "TMClock"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "command": "wangToolbox.selectAllLines"
+          "command": "wangToolbox.selectAllLines",
+          "when": "resourceScheme == untitled"
         },
         {
-          "command": "wangToolbox.addToLayout"
+          "command": "wangToolbox.addToLayout",
+          "when": "resourceScheme != untitled"
         }
       ],
       "view/item/context": [
@@ -127,5 +162,10 @@
     "typescript": "^4.9.4",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
+  },
+  "standard-version": {
+    "scripts": {
+      "posttag": "git push --follow-tags origin main"
+    }
   }
 }
